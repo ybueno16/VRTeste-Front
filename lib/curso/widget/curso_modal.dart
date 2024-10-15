@@ -36,7 +36,7 @@ void _salvar() {
       Navigator.of(context).pop();
     });
   } catch (e) {
-    print('Erro ao salvar o curso: $e');
+    throw Exception('Erro ao salvar o curso');
   }
 }
 

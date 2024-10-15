@@ -120,8 +120,9 @@ class _CursoPageState extends State<CursoPage> {
                                         'Você tem certeza que deseja excluir o curso ${curso.descricao}?',
                                     onPressedConfirm: () {
                                       _cursoStore.removerCurso(curso.id!);
-                                      Navigator.of(context).pop();
+                                      setState(() {});
                                       _cursoStore.getCursos();
+                                      Navigator.of(context).pop();
                                     },
                                     onPressedCancel: () {
                                       Navigator.of(context).pop();
