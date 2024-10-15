@@ -49,6 +49,30 @@ mixin _$CursoStore on CursoStoreBase, Store {
     return _$getCursosAsyncAction.run(() => super.getCursos());
   }
 
+  late final _$cadastrarCursosAsyncAction =
+      AsyncAction('CursoStoreBase.cadastrarCursos', context: context);
+
+  @override
+  Future<CursoEntity> cadastrarCursos(CursoEntity curso) {
+    return _$cadastrarCursosAsyncAction.run(() => super.cadastrarCursos(curso));
+  }
+
+  late final _$alterarCursosAsyncAction =
+      AsyncAction('CursoStoreBase.alterarCursos', context: context);
+
+  @override
+  Future<CursoEntity> alterarCursos(CursoEntity curso) {
+    return _$alterarCursosAsyncAction.run(() => super.alterarCursos(curso));
+  }
+
+  late final _$removerCursoAsyncAction =
+      AsyncAction('CursoStoreBase.removerCurso', context: context);
+
+  @override
+  Future<void> removerCurso(int id) {
+    return _$removerCursoAsyncAction.run(() => super.removerCurso(id));
+  }
+
   late final _$getCursosFiltradosAsyncAction =
       AsyncAction('CursoStoreBase.getCursosFiltrados', context: context);
 

@@ -8,6 +8,21 @@ class CursoPresenter {
     return await apiDatasource.getCursos();
   }
 
+  Future<CursoEntity> cadastrarCurso(CursoEntity curso) async {
+    ApiDatasourceCurso apiDatasource = ApiDatasourceCurso();
+    return await apiDatasource.cadastrarCurso(curso);
+  }
+
+  Future<int> removerCurso(int id) async {
+    ApiDatasourceCurso apiDatasource = ApiDatasourceCurso();
+    return await apiDatasource.removerCurso(id);
+  }
+
+  Future<CursoEntity> alterarCurso(CursoEntity curso) async {
+    ApiDatasourceCurso apiDatasource = ApiDatasourceCurso();
+    return await apiDatasource.alterarCurso(curso);
+  }
+
   Future<List<CursoEntity>> getCursosFiltrados({int? id, String? descricao}) async {
     final cursos = await getCursos();
     return cursos.where((curso) {
