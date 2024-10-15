@@ -49,6 +49,15 @@ mixin _$CursoStore on CursoStoreBase, Store {
     return _$getCursosAsyncAction.run(() => super.getCursos());
   }
 
+  late final _$getCursosFiltradosAsyncAction =
+      AsyncAction('CursoStoreBase.getCursosFiltrados', context: context);
+
+  @override
+  Future<void> getCursosFiltrados({int? id, String? descricao}) {
+    return _$getCursosFiltradosAsyncAction
+        .run(() => super.getCursosFiltrados(id: id, descricao: descricao));
+  }
+
   @override
   String toString() {
     return '''

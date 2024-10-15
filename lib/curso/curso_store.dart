@@ -15,16 +15,30 @@ abstract class CursoStoreBase with Store {
   @observable
   bool isLoading = false;
 
-@action
-Future<void> getCursos() async {
-  isLoading = true;
-  try {
-    final cursos = await cursoPresenter.getCursos();
-    this.cursos = cursos; // Adicione essa linha
-  } catch (e) {
-    rethrow;
-  } finally {
-    isLoading = false;
+  @action
+  Future<void> getCursos() async {
+    isLoading = true;
+    try {
+      final cursos = await cursoPresenter.getCursos();
+      this.cursos = cursos;
+    } catch (e) {
+      rethrow;
+    } finally {
+      isLoading = false;
+    }
   }
-}
+
+  @action
+  Future<void> getCursosFiltrados({int? id, String? descricao}) async {
+    isLoading = true;
+    try {
+      final cursos =
+          await cursoPresenter.getCursosFiltrados(id: id, descricao: descricao);
+      this.cursos = cursos;
+    } catch (e) {
+      rethrow;
+    } finally {
+      isLoading = false;
+    }
+  }
 }
