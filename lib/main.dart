@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vrteste_front/aluno/aluno_page.dart';
 import 'package:vrteste_front/curso/curso_page.dart';
+import 'package:vrteste_front/matricula/matricula_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,6 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
   final List<Widget> _telas = [
     const AlunoPage(),
     const CursoPage(),
+    const MatriculaPage(),
   ];
 
   @override
@@ -54,20 +56,30 @@ class _MyHomePageState extends State<MyHomePage> {
               title: const Text('Alunos'),
               leading: const Icon(Icons.people),
               onTap: () {
-                setState(() {
-                  _currentIndex = 0;
-                });
-                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => _telas[0]),
+                );
               },
             ),
             ListTile(
               title: const Text('Cursos'),
               leading: const Icon(Icons.school),
               onTap: () {
-                setState(() {
-                  _currentIndex = 1;
-                });
-                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => _telas[1]),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('Matriculas'),
+              leading: const Icon(Icons.assignment),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => _telas[2]),
+                );
               },
             ),
           ],

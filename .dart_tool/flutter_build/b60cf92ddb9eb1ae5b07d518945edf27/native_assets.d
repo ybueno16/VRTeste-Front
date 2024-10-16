@@ -1,0 +1,1 @@
+ /home/yuri-bueno/Documentos/dev/VRTeste-Front/.dart_tool/flutter_build/b60cf92ddb9eb1ae5b07d518945edf27/native_assets.yaml: 
