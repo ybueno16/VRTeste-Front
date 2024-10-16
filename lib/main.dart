@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vrteste_front/aluno/aluno_page.dart';
 import 'package:vrteste_front/curso/curso_page.dart';
 
 void main() {
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(),
+      home: const AlunoPage(),
     );
   }
 }
@@ -31,14 +32,14 @@ class _MyHomePageState extends State<MyHomePage> {
   int _currentIndex = 0;
 
   final List<Widget> _telas = [
-     CursoPage(),
+    const AlunoPage(),
+    const CursoPage(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-      ),
+      appBar: AppBar(),
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
@@ -50,11 +51,21 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text('VRFaculdade'),
             ),
             ListTile(
-              title: const Text('Cursos'),
-              leading: const Icon(Icons.home),
+              title: const Text('Alunos'),
+              leading: const Icon(Icons.people),
               onTap: () {
                 setState(() {
                   _currentIndex = 0;
+                });
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: const Text('Cursos'),
+              leading: const Icon(Icons.school),
+              onTap: () {
+                setState(() {
+                  _currentIndex = 1;
                 });
                 Navigator.pop(context);
               },
