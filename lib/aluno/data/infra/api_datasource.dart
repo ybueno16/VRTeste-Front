@@ -28,7 +28,7 @@ class ApiDatasourceAluno {
 
     try {
       Response response =
-          await dio.post('$baseUrl${Routes.cursos}', data: aluno.toJson());
+          await dio.post('$baseUrl${Routes.alunos}', data: aluno.toJson());
       if (response.statusCode == 200) {
         final data = response.data['data'];
         if (data != null) {
