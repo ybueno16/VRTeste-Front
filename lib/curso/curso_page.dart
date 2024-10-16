@@ -66,8 +66,8 @@ class _CursoPageState extends State<CursoPage> {
                           if (_debounce?.isActive ?? false) _debounce!.cancel();
                           _debounce =
                               Timer(const Duration(milliseconds: 500), () {
-                            _cursoStore.getCursosFiltrados(
-                                descricao: _controller.text)
+                            _cursoStore
+                                .getCursosFiltrados(descricao: _controller.text)
                                 .catchError((e) {
                               ErrorToast.show(context);
                             });
@@ -83,13 +83,12 @@ class _CursoPageState extends State<CursoPage> {
                             return Dialog(
                               child: CursoModal(
                                 onSalvar: (curso) {
-                                  _cursoStore
-                                      .cadastrarCursos(curso)
-                                      .then((_) {
+                                  _cursoStore.cadastrarCursos(curso).then((_) {
                                     setState(() {});
                                     _cursoStore.getCursos();
                                     Navigator.of(context).pop();
                                   }).catchError((e) {
+                                    print('Erro ao cadastrar curso: $e');
                                     ErrorToast.show(context);
                                   });
                                 },

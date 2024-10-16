@@ -4,11 +4,11 @@ import 'package:vrteste_front/config/routes.dart';
 import 'package:vrteste_front/curso/domain/entities/curso_entity.dart';
 
 class ApiDatasourceCurso {
-Dio dio = Dio();
+  Dio dio = Dio();
 
   Future<List<CursoEntity>> getCursos() async {
     try {
-    String baseUrl =  await ApiDatasource.getBaseUrl();
+      String baseUrl = await ApiDatasource.getBaseUrl();
       Response response = await dio.get('$baseUrl${Routes.cursos}');
 
       if (response.statusCode == 200) {
@@ -28,10 +28,18 @@ Dio dio = Dio();
     String baseUrl = await ApiDatasource.getBaseUrl();
 
     try {
-      Response response = await dio.post('$baseUrl${Routes.cursos}',
-          data: curso.toJson());
-      if (response.statusCode == 201) {
-        return CursoEntity.fromJson(response.data['data']);
+      print('Requisição de cadastro de curso: $curso');
+      Response response =
+          await dio.post('$baseUrl${Routes.cursos}', data: curso.toJson());
+      print('Resposta do servidor: $response');
+      if (response.statusCode == 200) {
+        final data = response.data['data'];
+        final id = data['id'] ?? 0;
+        return CursoEntity.fromJson({
+          'id': id,
+          'descricao': data['descricao'],
+          'ementa': data['ementa']
+        });
       } else {
         throw Exception("Erro ao cadastrar o curso");
       }
@@ -43,8 +51,8 @@ Dio dio = Dio();
   Future<CursoEntity> alterarCurso(CursoEntity curso) async {
     String baseUrl = await ApiDatasource.getBaseUrl();
     try {
-      Response response = await dio.put('$baseUrl${Routes.cursos}',
-          data: curso.toJson());
+      Response response =
+          await dio.put('$baseUrl${Routes.cursos}', data: curso.toJson());
       if (response.statusCode == 200) {
         return CursoEntity.fromJson(response.data['data']);
       } else {

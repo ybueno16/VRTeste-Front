@@ -1,4 +1,4 @@
-#Tue Oct 15 19:19:09 BRT 2024
+#Tue Oct 15 21:32:15 BRT 2024
 base.0=/home/yuri/Documentos/dev/VRTeste-Front/build/app/intermediates/dex/debug/mergeExtDexDebug/classes.dex
 base.1=/home/yuri/Documentos/dev/VRTeste-Front/build/app/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
 base.2=/home/yuri/Documentos/dev/VRTeste-Front/build/app/intermediates/dex/debug/mergeProjectDexDebug/1/classes.dex
