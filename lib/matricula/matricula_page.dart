@@ -90,7 +90,7 @@ class _MatriculaPageState extends State<MatriculaPage> {
                                       _matriculaStore.getMatriculas();
                                       Navigator.of(context).pop();
                                     }).catchError((e) {
-                                      print('Erro ao cadastrar curso: $e');
+                                      print('Erro ao cadastrar matricula: $e');
                                       ErrorToast.show(context);
                                     });
                                   },
@@ -100,7 +100,7 @@ class _MatriculaPageState extends State<MatriculaPage> {
                           );
                         },
                         icon: const Icon(Icons.add),
-                      ),
+                      )
                     ],
                   ),
                 ),
@@ -122,7 +122,7 @@ class _MatriculaPageState extends State<MatriculaPage> {
                                   context: context,
                                   builder: (BuildContext context) {
                                     return ConfirmDialog(
-                                      title: 'Excluir Curso',
+                                      title: 'Excluir Matricula',
                                       message:
                                           'Você tem certeza que deseja excluir a matricula?',
                                       onPressedConfirm: () {
@@ -147,8 +147,8 @@ class _MatriculaPageState extends State<MatriculaPage> {
                                 width: 200,
                                 children: [
                                   Text("id: ${matricula.id}"),
-                                  Text("descrição: ${matricula.nomeAluno}"),
-                                  Text("ementa: ${matricula.nomeCurso}"),
+                                  Text("nome aluno: ${matricula.nomeAluno}"),
+                                  Text("nome curso: ${matricula.nomeCurso}"),
                                 ],
                               ),
                             );

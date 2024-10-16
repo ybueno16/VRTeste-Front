@@ -52,18 +52,20 @@ class _CursoModalState extends State<CursoModal> {
             decoration: const InputDecoration(
               labelText: 'Descrição',
             ),
+            key: const Key('descricaoField'),
           ),
           TextField(
             controller: _ementaController,
             decoration: const InputDecoration(
               labelText: 'Ementa',
             ),
+            key: const Key('ementaField'),
           ),
           const SizedBox(height: 16),
           ElevatedButton(
-            onPressed: _salvar,
-            child: const Text('Salvar'),
-          ),
+              onPressed: _salvar,
+              child: const Text('Salvar'),
+              key: const Key('salvarButton')),
         ],
       ),
     );

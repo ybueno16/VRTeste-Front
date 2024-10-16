@@ -26,18 +26,14 @@ class _MatriculaModalState extends State<MatriculaModal> {
   }
 
   void _salvar() {
-    final curso = MatriculaEntity(
-      id: widget.matricula!.id,
+    final matricula = MatriculaEntity(
+      id: widget.matricula?.id ?? 0,
       idAluno: int.parse(_idAlunoController.text),
       idCurso: int.parse(_idCursoController.text),
     );
-    try {
-      widget.onSalvar(curso).then((_) {
-        Navigator.of(context).pop();
-      });
-    } catch (e) {
-      throw Exception('Erro ao salvar o curso');
-    }
+    widget.onSalvar(matricula).then((_) {
+      Navigator.of(context).pop();
+    });
   }
 
   @override

@@ -4,7 +4,7 @@ import 'package:vrteste_front/config/routes.dart';
 import 'package:vrteste_front/matricula/domain/infra/matricula_entity.dart';
 import 'package:vrteste_front/matricula/domain/infra/matricula_info_entity.dart';
 
-class ApiDataSource {
+class ApiDataSourceMatricula {
   Dio dio = Dio();
 
   Future<List<MatriculaInfoEntity>> getMatriculas() async {
@@ -20,6 +20,17 @@ class ApiDataSource {
       } else {
         throw Exception("Erro ao obter alunos");
       }
+    } on DioException catch (e) {
+      if (e.response != null) {
+        if (e.response!.statusCode == 500) {
+          // Handle server error
+          throw Exception("Erro interno do servidor");
+        } else {
+          throw Exception("Erro ao obter alunos");
+        }
+      } else {
+        throw Exception("Erro ao conectar ao servidor");
+      }
     } catch (e) {
       rethrow;
     }
@@ -28,9 +39,10 @@ class ApiDataSource {
   Future<MatriculaEntity> cadastrarMatricula(MatriculaEntity matricula) async {
     String baseUrl = await ApiDatasource.getBaseUrl();
     try {
-      Response response =
-          await dio.post('$baseUrl${Routes.matriculas}', data: matricula.toJson());
+      Response response = await dio.post('$baseUrl${Routes.matriculas}',
+          data: matricula.toJson());
       if (response.statusCode == 200) {
+        print(response.data['data']);
         return MatriculaEntity.fromJson(response.data['data']);
       } else {
         throw Exception("Erro ao cadastrar a matricula");
