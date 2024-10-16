@@ -7,10 +7,9 @@ import 'package:vrteste_front/commons/widgets/textfield_commons.dart';
 import 'package:vrteste_front/curso/curso_store.dart';
 import 'package:vrteste_front/curso/widget/curso_modal.dart';
 import 'package:vrteste_front/commons/widgets/confirmation_dialog.dart';
+import 'package:vrteste_front/commons/widgets/error_toast.dart';
 
 class CursoPage extends StatefulWidget {
-  const CursoPage({super.key});
-
   @override
   _CursoPageState createState() => _CursoPageState();
 }
@@ -68,7 +67,10 @@ class _CursoPageState extends State<CursoPage> {
                           _debounce =
                               Timer(const Duration(milliseconds: 500), () {
                             _cursoStore.getCursosFiltrados(
-                                descricao: _controller.text);
+                                descricao: _controller.text)
+                                .catchError((e) {
+                              ErrorToast.show(context);
+                            });
                           });
                         },
                       ),
@@ -81,10 +83,14 @@ class _CursoPageState extends State<CursoPage> {
                             return Dialog(
                               child: CursoModal(
                                 onSalvar: (curso) {
-                                  _cursoStore.cadastrarCursos(curso).then((_) {
+                                  _cursoStore
+                                      .cadastrarCursos(curso)
+                                      .then((_) {
                                     setState(() {});
                                     _cursoStore.getCursos();
                                     Navigator.of(context).pop();
+                                  }).catchError((e) {
+                                    ErrorToast.show(context);
                                   });
                                 },
                               ),
@@ -119,10 +125,15 @@ class _CursoPageState extends State<CursoPage> {
                                     message:
                                         'Você tem certeza que deseja excluir o curso ${curso.descricao}?',
                                     onPressedConfirm: () {
-                                      _cursoStore.removerCurso(curso.id!);
-                                      setState(() {});
-                                      _cursoStore.getCursos();
-                                      Navigator.of(context).pop();
+                                      _cursoStore
+                                          .removerCurso(curso.id!)
+                                          .then((_) {
+                                        setState(() {});
+                                        _cursoStore.getCursos();
+                                        Navigator.of(context).pop();
+                                      }).catchError((e) {
+                                        ErrorToast.show(context);
+                                      });
                                     },
                                     onPressedCancel: () {
                                       Navigator.of(context).pop();
@@ -153,6 +164,8 @@ class _CursoPageState extends State<CursoPage> {
                                           setState(() {});
                                           _cursoStore.getCursos();
                                           Navigator.of(context).pop();
+                                        }).catchError((e) {
+                                          ErrorToast.show(context);
                                         });
                                       },
                                       curso: curso,
