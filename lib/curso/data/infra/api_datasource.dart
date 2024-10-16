@@ -28,10 +28,8 @@ class ApiDatasourceCurso {
     String baseUrl = await ApiDatasource.getBaseUrl();
 
     try {
-      print('Requisição de cadastro de curso: $curso');
       Response response =
           await dio.post('$baseUrl${Routes.cursos}', data: curso.toJson());
-      print('Resposta do servidor: $response');
       if (response.statusCode == 200) {
         final data = response.data['data'];
         final id = data['id'] ?? 0;
