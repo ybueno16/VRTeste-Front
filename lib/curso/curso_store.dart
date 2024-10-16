@@ -67,11 +67,11 @@ abstract class CursoStoreBase with Store {
   }
 
   @action
-  Future<void> getCursosFiltrados({int? id, String? descricao}) async {
+  Future<void> getCursosFiltrados({String? pesquisa}) async {
     isLoading = true;
     try {
       final cursos =
-          await cursoPresenter.getCursosFiltrados(id: id, descricao: descricao);
+          await cursoPresenter.getCursosFiltrados(pesquisa: pesquisa);
       this.cursos = cursos;
     } catch (e) {
       rethrow;

@@ -77,9 +77,9 @@ mixin _$CursoStore on CursoStoreBase, Store {
       AsyncAction('CursoStoreBase.getCursosFiltrados', context: context);
 
   @override
-  Future<void> getCursosFiltrados({int? id, String? descricao}) {
+  Future<void> getCursosFiltrados({String? pesquisa}) {
     return _$getCursosFiltradosAsyncAction
-        .run(() => super.getCursosFiltrados(id: id, descricao: descricao));
+        .run(() => super.getCursosFiltrados(pesquisa: pesquisa));
   }
 
   @override

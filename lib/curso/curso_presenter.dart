@@ -23,12 +23,12 @@ class CursoPresenter {
     return await apiDatasource.alterarCurso(curso);
   }
 
-  Future<List<CursoEntity>> getCursosFiltrados({int? id, String? descricao}) async {
-    final cursos = await getCursos();
-    return cursos.where((curso) {
-      if (id != null && curso.id != id) return false;
-      if (descricao != null && !curso.descricao.contains(descricao)) return false;
-      return true;
-    }).toList();
-  }
+Future<List<CursoEntity>> getCursosFiltrados({String? pesquisa}) async {
+  final cursos = await getCursos();
+  return cursos.where((curso) {
+    return curso.id.toString().toLowerCase().contains(pesquisa?.toLowerCase() ?? '') ||
+           curso.descricao.toLowerCase().contains(pesquisa?.toLowerCase() ?? '') ||
+           curso.ementa.toLowerCase().contains(pesquisa?.toLowerCase() ?? '');
+  }).toList();
+}
 }

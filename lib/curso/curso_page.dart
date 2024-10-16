@@ -67,7 +67,7 @@ class _CursoPageState extends State<CursoPage> {
                           _debounce =
                               Timer(const Duration(milliseconds: 500), () {
                             _cursoStore
-                                .getCursosFiltrados(descricao: _controller.text)
+                                .getCursosFiltrados(pesquisa: _controller.text)
                                 .catchError((e) {
                               ErrorToast.show(context);
                             });
