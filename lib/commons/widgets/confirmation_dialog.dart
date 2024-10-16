@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 class ConfirmDialog extends StatefulWidget {
   final String title;
   final String message;
-final VoidCallback? onPressedConfirm;
+  final VoidCallback? onPressedConfirm;
   final VoidCallback? onPressedCancel;
 
-  const ConfirmDialog({super.key, 
+  const ConfirmDialog({
+    super.key,
     required this.title,
     required this.message,
     required this.onPressedConfirm,

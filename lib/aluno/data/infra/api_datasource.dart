@@ -31,19 +31,8 @@ class ApiDatasourceAluno {
           await dio.post('$baseUrl${Routes.alunos}', data: aluno.toJson());
       if (response.statusCode == 200) {
         final data = response.data['data'];
-        if (data != null) {
-          final id = data['id'] ?? 0;
-          if (data['nome'] != null) {
-            return AlunoEntity.fromJson({
-              'id': id,
-              'nome': data['nome'],
-            });
-          } else {
-            throw Exception("Nome do aluno não foi fornecido");
-          }
-        } else {
-          throw Exception("Invalid JSON response");
-        }
+        final id = data['id'] ?? 0;
+        return AlunoEntity.fromJson({'id': id, 'nome': data['nome']});
       } else {
         throw Exception("Erro ao cadastrar o curso");
       }

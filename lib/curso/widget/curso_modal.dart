@@ -25,20 +25,20 @@ class _CursoModalState extends State<CursoModal> {
     }
   }
 
-void _salvar() {
-  final curso = CursoEntity(
-    id: widget.curso?.id,
-    descricao: _descricaoController.text,
-    ementa: _ementaController.text,
-  );
-  try {
-    widget.onSalvar(curso).then((_) {
-      Navigator.of(context).pop();
-    });
-  } catch (e) {
-    throw Exception('Erro ao salvar o curso');
+  void _salvar() {
+    final curso = CursoEntity(
+      id: widget.curso?.id,
+      descricao: _descricaoController.text,
+      ementa: _ementaController.text,
+    );
+    try {
+      widget.onSalvar(curso).then((_) {
+        Navigator.of(context).pop();
+      });
+    } catch (e) {
+      throw Exception('Erro ao salvar o curso');
+    }
   }
-}
 
   @override
   Widget build(BuildContext context) {

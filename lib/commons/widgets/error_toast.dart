@@ -23,7 +23,8 @@ class ErrorToast extends StatelessWidget {
   static void show(BuildContext context) {
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
-        content: ErrorToast(errorMessage: "Houve algum erro ao realizar a operaçao"),
+        content:
+            ErrorToast(errorMessage: "Houve algum erro ao realizar a operaçao"),
         backgroundColor: Colors.red,
         duration: Duration(seconds: 3),
       ),

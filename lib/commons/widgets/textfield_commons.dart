@@ -26,8 +26,8 @@ class _PesquisaTextFieldState extends State<PesquisaTextField> {
         TextField(
           controller: widget.controller,
           onChanged: (pesquisa) {
-                widget.onChanged?.call(pesquisa);
-            },
+            widget.onChanged?.call(pesquisa);
+          },
           decoration: InputDecoration(
             hintText: widget.dica,
             border: const OutlineInputBorder(),

@@ -12,6 +12,4 @@ class ApiDatasource {
     String baseUrl = 'http://$ip:$port/$baseApi';
     return baseUrl;
   }
-
-
 }

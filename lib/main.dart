@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const AlunoPage(),
+      home: const MyHomePage(),
     );
   }
 }
@@ -70,7 +70,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 Navigator.pop(context);
               },
             ),
-            // Adicione mais opções de menu lateral aqui
           ],
         ),
       ),
