@@ -141,12 +141,19 @@ class _CursoPageState extends State<CursoPage> {
                                 );
                               },
                               child: CardCommons(
-                                height: 200,
+                                height: 100,
                                 width: 200,
                                 children: [
-                                  Text("id: ${curso.id}"),
-                                  Text("descrição: ${curso.descricao}"),
-                                  Text("ementa: ${curso.ementa}"),
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text("id: ${curso.id}"),
+                                      Text("descrição: ${curso.descricao}"),
+                                      Text("ementa: ${curso.ementa}"),
+                                    ],
+                                  ),
                                 ],
                               ),
                               onTap: () {

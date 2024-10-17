@@ -143,12 +143,19 @@ class _MatriculaPageState extends State<MatriculaPage> {
                                 );
                               },
                               child: CardCommons(
-                                height: 200,
+                                height: 100,
                                 width: 200,
                                 children: [
-                                  Text("id: ${matricula.id}"),
-                                  Text("nome aluno: ${matricula.nomeAluno}"),
-                                  Text("nome curso: ${matricula.nomeCurso}"),
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text("id: ${matricula.id}"),
+                                      Text("nome aluno: ${matricula.nomeAluno}"),
+                                      Text("nome curso: ${matricula.nomeCurso}"),
+                                    ],
+                                  ),
                                 ],
                               ),
                             );

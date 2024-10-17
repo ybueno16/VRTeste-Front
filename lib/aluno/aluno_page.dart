@@ -137,11 +137,18 @@ class _AlunoPageState extends State<AlunoPage> {
                                 );
                               },
                               child: CardCommons(
-                                height: 200,
+                                height: 100,
                                 width: 200,
                                 children: [
-                                  Text("id: ${aluno.id}"),
-                                  Text("descrição: ${aluno.nome}"),
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text("id: ${aluno.id}"),
+                                      Text("nome do aluno: ${aluno.nome}"),
+                                    ],
+                                  ),
                                 ],
                               ),
                               onTap: () {
