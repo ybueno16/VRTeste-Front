@@ -1,16 +1,30 @@
-# vrteste_front
+# 🛠️ Teste Prático Desenvolvimento Flutter - VR Software
 
-A new Flutter project.
 
-## Getting Started
+## 🧰 Tecnologias Utilizadas
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+- **Mobx para reatividade**
+- **Banco de Dados PostgreSQL**
+- **DIO para requisições rest**
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 🚀 Funcionalidades Implementadas
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Curso:
+- Consultar: listagem dos cursos cadastrados
+- Cadastrar: adição de um novo curso
+- Excluir: exclusão um curso existente (desde que não
+tenha nenhum aluno matriculado)
+- Editar: alterar os dados de um curso existente
+
+### Aluno
+- Consultar: listagem de de alunos cadastrados
+- Cadastrar: adição de um novo aluno
+- Excluir: exclusão de um aluno cadastrado (desde que
+não esteja matriculado em nenhum curso)
+- Editar: alterar os dados de um aluno existente
+
+### Matricula
+- Cadastrar: vincular um aluno à um curso cadastrado
+- Excluir: remover um aluno cadastrado em um curso
+  
